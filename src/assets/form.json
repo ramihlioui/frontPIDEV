@@ -1,0 +1,31 @@
+{
+  "components": [
+    {
+      "subtype": "date",
+      "dateLabel": "Date",
+      "type": "datetime",
+      "id": "Field_032q52u",
+      "key": "field_1equ4ue"
+    },
+    {
+      "label": "Text field",
+      "type": "textfield",
+      "id": "Field_0rplu5d",
+      "key": "field_1m75qip"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date",
+      "type": "datetime",
+      "id": "Field_0n8ocw4",
+      "key": "field_0u6zvpy"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1yxrmb1",
+  "exporter": {
+    "name": "form-js (https://demo.bpmn.io)",
+    "version": "0.10.0"
+  },
+  "schemaVersion": 6
+}

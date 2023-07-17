@@ -1,0 +1,59 @@
+.bjs-breadcrumbs li:not(:first-child)::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" /><path d="M0 0h24v24H0z" fill="none" /></svg>');
+  padding: 0 8px;
+  color: var(--breadcrumbs-arrow-color);
+  height: 1em;
+}
+.bjs-powered-by
+{
+ visibility: hidden;
+}
+.bjs-breadcrumbs .bjs-crumb {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bpmn-icon-receive .entry
+{
+  visibility: hidden;
+}
+.bpmn-icon-send
+{
+  visibility: hidden;
+  display: none;
+}
+.bpmn-icon-receive
+{
+  visibility: hidden;
+  display: none;
+}
+.bpmn-icon-subprocess-expanded
+{
+  visibility: hidden;
+  display: none;
+}
+.bjs-drilldown {
+  width: 20px;
+  height: 20px;
+
+  padding: 0px;
+  margin-left: -20px;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+
+  fill: var(--drilldown-fill-color);
+  background-color: var(--drilldown-background-color);
+}
+
+.bjs-drilldown-empty {
+  display: none;
+}
+
+.selected .bjs-drilldown-empty {
+  display: inherit;
+}

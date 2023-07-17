@@ -1,0 +1,12 @@
+/* COLOR PICKER */
+
+.djs-popup.color-picker .entry {
+  margin: 0;
+}
+
+
+.djs-popup.color-picker .djs-popup-group {
+  display: grid;
+  grid: auto-flow / 1fr 1fr 1fr;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9icG1uLWpzLWNvbG9yLXBpY2tlci9jb2xvcnMvY29sb3ItcGlja2VyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxpQkFBaUI7O0FBRWpCO0lBQ0ksU0FBUztBQUNiOztBQUVBO0VBQ0UsYUFBYTtFQUNiLDZCQUE2QjtBQUMvQiIsInNvdXJjZXNDb250ZW50IjpbIi8qIENPTE9SIFBJQ0tFUiAqL1xuXG4uZGpzLXBvcHVwLmNvbG9yLXBpY2tlciAuZW50cnkge1xuICAgIG1hcmdpbjogMDtcbn1cblxuLmRqcy1wb3B1cC5jb2xvci1waWNrZXIgLmRqcy1wb3B1cC1ncm91cCB7XG4gIGRpc3BsYXk6IGdyaWQ7XG4gIGdyaWQ6IGF1dG8tZmxvdyAvIDFmciAxZnIgMWZyO1xufSJdLCJzb3VyY2VSb290IjoiIn0= */
