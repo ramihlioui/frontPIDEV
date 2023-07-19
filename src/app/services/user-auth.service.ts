@@ -18,12 +18,12 @@ export class UserAuthService {
   }
   public setRoles(roles:[])
 {
-  localStorage.setItem("role",JSON.stringify(roles))
+  localStorage.setItem("roles",JSON.stringify(roles))
 }
 public getRoles():[]
 {
 
-  return JSON.parse(localStorage.getItem("role") || '{}');
+  return JSON.parse(localStorage.getItem("roles") || '{}');
 }
 
 public  getToken()
@@ -45,6 +45,8 @@ public setToken(token : string)
 {
   localStorage.setItem("token",token);
 }
+
+
 public  clear()
 {
   localStorage.clear();

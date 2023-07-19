@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     (response:any) => {
 
       this.authService.setToken(response.token)
+      this.authService.setRoles(response.roles)
 
 
       
