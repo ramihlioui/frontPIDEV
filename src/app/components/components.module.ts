@@ -5,6 +5,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
+import { ListReclamationsComponent } from './reclamation/list-reclamations/list-reclamations.component';
+import { DetailReclamationComponent } from './reclamation/detail-reclamation/detail-reclamation.component';
 
 @NgModule({
   imports: [
@@ -15,7 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    AddReclamationComponent,
+    ListReclamationsComponent,
+    DetailReclamationComponent
   ],
   exports: [
     FooterComponent,
