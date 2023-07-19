@@ -21,7 +21,6 @@ import {MatButtonModule} from '@angular/material/button';
 import { SpinnerComponent } from './Loading/spinner/spinner.component';
 import { LoadingInterceptor } from './Loading/loading.interceptor';
 
-import {AuthGuard} from "./auth/auth.guard";
 import {UserServiceService} from "./services/user-service.service";
 import {AuthInterceptor} from "./auth/auth.interceptor";
 
@@ -31,6 +30,10 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { SellerGuard } from './auth/Seller.Guard';
+import { LockComponent } from './pages/lock/lock.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ActivatedAccountComponent } from './pages/activated-account/activated-account.component';
 
 
 
@@ -62,10 +65,13 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     PropertiesComponent,
 
     SpinnerComponent,
+     LockComponent,
+     ForgotPasswordComponent,
+     ActivatedAccountComponent,
 
   ],
   providers: [
-    AuthGuard,
+    SellerGuard,
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor ,multi:true ,
     }

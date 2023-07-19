@@ -17,16 +17,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginUser(loginForm:NgForm)
   {
     console.log(loginForm.value);
-    this.userService.loginUser(loginForm.value).subscribe(
-    (response:any) => {
-
-      this.authService.setToken(response.token)
-
-
-      
-      this.router.navigate(["/user-profile"]);
-      
+    this.userService.loginUser(loginForm.value).then(
+      response=> {
      
+      this.authService.setToken(response.data.token)
+      this.authService.setRoles(response.data.roles)
+
+      this.router.navigate(["/user-profile"]);
     }
   );
   }
@@ -59,7 +56,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     else if(this.authService.isLoggedIn() && this.userService.RoleMatch(["Admin"]))
     {
-    this.router.navigate(["/workflow"]).then()
+      this.router.navigate(["/dashboard"]).then()
     }
     else {
       this.router.navigate(["/workflow"]).then()

@@ -3,24 +3,57 @@ import {UserAuthService} from './user-auth.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Entity/UserModel';
+import axios from 'axios';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
   PATH = "http://localhost:8080";
+ 
   requestHeaders = new HttpHeaders({"No-Auth":"True"});
   requestHeaders2 = new HttpHeaders(    {"Authorization":"Bearer"+ `Bearer ${this.userAut.getToken()}`});
 
-  constructor(private httpClient:HttpClient,private  userAut:UserAuthService) { }
-
-
+  constructor(private httpClient:HttpClient,private router:Router,private  userAut:UserAuthService) { }
 
   public loginUser(loginData:any){
    
     console.log("body  :",loginData)
-   return  this.httpClient.post<any>("http://localhost:8080/auth/authenticate", loginData)
+    return  axios.post<any>("http://localhost:8080/auth/authenticate", loginData)
   }
+
+  public registerUser(registerData:any){
+   
+    console.log("body  :",registerData)
+    return  axios.post<any>("http://localhost:8080/auth/register", registerData)
+  }
+
+
+  forgotPassword(email:string){
+    const body = {email};
+    console.log("body : ",body)
+    return axios.post<any>("http://localhost:8080/auth/forgot-password", body)
+
+  } 
+
+    resetPassword(password:string, token:string){
+      console.log("token : ",token)
+      const body = {password};
+      console.log("body : ",body)
+      return axios.put<any>(`http://localhost:8080/auth/reset-password?token=${token}`, body).then(
+        response => {
+          console.log("password changed")
+          this.router.navigate(['/login']); // Replace 'target-route' with the desired route path
+
+        })  
+    } 
+
+    ActivateAccount(token:string){
+ 
+      return axios.post<any>(`http://localhost:8080/auth/confirm?token=${token}`)
+  
+    } 
 
   getUserById(id: number): Observable<User> {
     const url = `${this.PATH}/user/${id}`;
