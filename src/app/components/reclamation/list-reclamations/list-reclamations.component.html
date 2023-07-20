@@ -14,10 +14,13 @@
             </div></th>
             <th>   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Solution
             </div></th>
-            <th>   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Creation Date
-            </div></th>
             <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>status</th>
+                   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Creation Date
+            </div></th>
+                <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
+                    <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>status</th>
+                    <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
+                        <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>PDF</th>
             <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
                 <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>delete</th>
             <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
@@ -31,6 +34,11 @@
             <td _ngcontent-gbj-c180>  {{ rec.solution }}</td>
             <td _ngcontent-gbj-c180>  {{ rec.creationDate }}</td>
             <td _ngcontent-gbj-c180>  {{ rec.treated }} </td>
+            
+            <td _ngcontent-gbj-c180><button (click)="generatePDF(rec)"  pbutton="" pripple="" type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mr-2 p-mb-2 p-ripple p-button p-component p-button-icon-only" ng-reflect-icon="pi pi-times">
+                <span class="p-button-icon pi pi-times" aria-hidden="true"></span>
+                <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
+                <span class="p-ink"></span></button></td>
             <td _ngcontent-gbj-c180><button (click)="deleteReclamation(rec.id)"  pbutton="" pripple="" type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mr-2 p-mb-2 p-ripple p-button p-component p-button-icon-only" ng-reflect-icon="pi pi-times">
                 <span class="p-button-icon pi pi-times" aria-hidden="true"></span>
                 <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
