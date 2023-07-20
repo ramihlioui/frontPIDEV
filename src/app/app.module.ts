@@ -31,6 +31,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { ReclamationService } from './services/reclamation.service';
 
 
 
@@ -77,7 +78,8 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
     }
     ,
-    UserServiceService
+    UserServiceService,
+    ReclamationService
 
   ],
   bootstrap: [AppComponent]

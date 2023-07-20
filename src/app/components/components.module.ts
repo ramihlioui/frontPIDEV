@@ -8,12 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
 import { ListReclamationsComponent } from './reclamation/list-reclamations/list-reclamations.component';
 import { DetailReclamationComponent } from './reclamation/detail-reclamation/detail-reclamation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule, 
+    FormsModule
   ],
   declarations: [
     FooterComponent,

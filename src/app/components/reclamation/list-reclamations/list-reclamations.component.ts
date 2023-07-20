@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Reclamation } from 'src/app/Entity/Reclamation';
 
 @Component({
   selector: 'app-list-reclamations',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-reclamations.component.css']
 })
 export class ListReclamationsComponent {
+  listcomp: Reclamation[];
 
 }
