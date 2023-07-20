@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <h2>Solve Reclamation :</h2>
+    </div>
+
+    <form >
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID reclamation</label>
+            <input readonly type="text" [(ngModel)]="reclamation.id" name="id" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Reclamation description</label>
+            <input readonly type="text"[(ngModel)]="reclamation.description" name="description" class="form-control">
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Reclamation Title</label>
+            <input readonly type="text" [(ngModel)]="reclamation.title" name="title" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Reclamation Solution</label>
+            <input  type="text" [(ngModel)]="reclamation.solution" name="solution" class="form-control">
+        </div>
+
+        <div class="mt-2">
+            <button type="submit"  class="btn btn-success">update</button>
+
+        </div>
+    </form>
+</div>
