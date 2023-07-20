@@ -22,8 +22,12 @@ export class UserAuthService {
 }
 public getRoles():[]
 {
-
   return JSON.parse(localStorage.getItem("roles") || '{}');
+}
+
+public getRolesAgain()
+{
+  return localStorage.getItem("roles")
 }
 
 public  getToken()

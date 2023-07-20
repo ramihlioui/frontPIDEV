@@ -1,0 +1,145 @@
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center">
+          <div class=" mt-9  col-lg-6 col-7">
+            <h6 class=" h2 text-white d-inline-block    ">Tables</h6>
+  
+            <nav
+              aria-label="breadcrumb"
+              class="  d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> USERS </a>
+                </li>
+  
+                <li aria-current="page" class=" breadcrumb-item active">
+                  Tables
+                </li>
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" mt-9  col-lg-6 col-5 text-right">
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+  
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+              Filters
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" container-fluid mt--6">
+    <div class=" row">
+      <div class=" col">
+
+
+
+
+<div class=" card mt-8">
+    <div class=" card-header border-0">
+      <div class=" row">
+        <div class=" col-6"><h3 class=" mb-0">Inline actions</h3></div>
+
+        <div class=" col-6 text-right">
+          <a
+            class=" btn btn-sm btn-neutral btn-round btn-icon"
+            href="javascript:void(0)"
+            tooltip="Edit product"
+            placement="top"
+          >
+            <span class=" btn-inner--icon">
+              <i class=" fas fa-user-edit"> </i>
+            </span>
+
+            <span class=" btn-inner--text"> Export </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class=" table-responsive">
+      <table class=" table align-items-center table-flush">
+        <thead class=" thead-light">
+          <tr>
+            <th>Collaborateur</th>
+
+            <th>Date céation</th>
+            <th class=" sort" data-sort="status" scope="col">Statut</th>
+
+            <th>E-mail</th>
+
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td class=" table-user">
+              <img
+                class=" avatar rounded-circle mr-3"
+                src="assets/img/theme/team-1.jpg"
+              />
+
+              <b>{{user.name}}  {{user.lastName}} </b>
+            </td>
+
+            <td><span class=" text-muted"> {{ user.createdAt | date:' dd/MMM/yyyy' }}</span></td>
+            <td>
+                <span class=" badge badge-dot mr-4">
+                  <i class=" {{ user.enabled === true ? 'bg-warning' : 'bg-warning' }}"> </i>
+
+                  <span class=" status"> {{ user.enabled === true ? 'activé' : 'pas encore' }} </span>
+                </span>
+              </td>
+
+            <td>
+              <a class=" font-weight-bold" href="javascript:void(0)">
+                {{user.email}}
+              </a>
+            </td>
+
+            <td class=" table-actions">
+              <a
+                class="table-action"
+                tooltip="Edit product"
+                placement="top"
+                href="javascript:void(0)"
+              >
+                <i class=" fas fa-user-edit"> </i>
+              </a>
+
+              <a
+                class=" table-action table-action-delete"
+                tooltip="Delete product"
+                placement="top"
+                href="javascript:void(0)"
+              >
+                <i class=" fas fa-trash"> </i>
+              </a>
+            </td>
+          </tr>
+          
+
+         
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+
+
+
+
+      </div>
+    </div>
+</div>

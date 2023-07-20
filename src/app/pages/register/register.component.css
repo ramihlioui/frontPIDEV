@@ -12,6 +12,7 @@
   }
   
   .custom-toggle-label {
+    width: 100px;
     margin-right: 50px;
     margin-bottom: 10px; /* Add margin to the right of the role name */
   }
