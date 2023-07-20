@@ -1,0 +1,19 @@
+/* signup.component.css */
+
+.role-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .custom-toggle {
+    display: inline-flex; /* Use inline-flex to make the elements inline */
+    align-items: center;
+  }
+  
+  .custom-toggle-label {
+    margin-right: 50px;
+    margin-bottom: 10px; /* Add margin to the right of the role name */
+  }
+  
+ 
