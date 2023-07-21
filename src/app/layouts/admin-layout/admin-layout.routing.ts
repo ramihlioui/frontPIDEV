@@ -5,11 +5,14 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 
 import { SellerGuard } from 'src/app/auth/Seller.Guard';
 import { AdminDashboardComponent } from 'src/app/pages/admin-dashboard/admin-dashboard.component';
+import { CalendarComponent } from 'src/app/calendar/calendar.component';
 
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'user-profile',   component: UserProfileComponent,canActivate:[SellerGuard], data: { allowedRoles: ['ROLE_SELLER', 'ROLE_BUYER'] } },
     { path: 'dashboard',      component: AdminDashboardComponent,canActivate:[SellerGuard],data:{ allowedRoles: ['ROLE_ADMIN'] } },
 
-
+    {
+      path: 'calendar',  component:CalendarComponent
+    },
 ];
