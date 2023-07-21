@@ -40,7 +40,7 @@ export class ForumService {
 
   public addLike(id,like){
     const PostLike = like;
-    return  this.httpClient.post<any>(this.PATH+"/post"+id,PostLike,{headers : this.requestHeaders2});
+    return  this.httpClient.post<any>(this.PATH+"/post/addLike/"+id,PostLike,{headers : this.requestHeaders2});
 
   }
   public searchPost(){
