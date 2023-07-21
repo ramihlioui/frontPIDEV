@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ForumComponent } from './components/forum/forum.component';
+import { ListReclamationsComponent } from './components/reclamation/list-reclamations/list-reclamations.component';
+import { DetailReclamationComponent } from './components/reclamation/detail-reclamation/detail-reclamation.component';
+import { AddReclamationComponent } from './components/reclamation/add-reclamation/add-reclamation.component';
 
 const routes: Routes =[
   {

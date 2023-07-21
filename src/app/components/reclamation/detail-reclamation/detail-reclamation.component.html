@@ -1,0 +1,75 @@
+
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+      <div class=" header-body">
+        <div class=" row align-items-center">
+          <div class=" mt-9  col-lg-6 col-7">
+  
+            <nav
+              aria-label="breadcrumb"
+              class="  d-none d-md-inline-block ml-md-4"
+            >
+              <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                </li>
+  
+                <li class=" breadcrumb-item">
+                  <a href="javascript:void(0)"> Reclamation </a>
+                </li>
+
+              </ol>
+            </nav>
+          </div>
+  
+          <div class=" mt-9  col-lg-6 col-5 text-right">
+            <a class=" btn btn-sm btn-neutral" [routerLink]="['/addReclamation']"> New </a>
+  
+            <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+              Filters
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      
+  <div class=" card mt-8">
+    <div class=" card-header border-0">
+      <div class=" row">
+        <div class=" col-6"><h3 class=" mb-0">Inline actions</h3></div>
+      </div>
+    </div>
+
+<div class="container">
+    <div>
+        <h2>Solve Reclamation :</h2>
+    </div>
+
+    <form >
+        <div  class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID reclamation</label>
+            <input readonly type="text" [(ngModel)]="reclamation.id" name="id" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Reclamation description</label>
+            <input readonly type="text"[(ngModel)]="reclamation.description" name="description" class="form-control">
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Reclamation Title</label>
+            <input readonly type="text" [(ngModel)]="reclamation.title" name="title" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Reclamation Solution</label>
+            <input  type="text" [(ngModel)]="reclamation.solution" name="solution" class="form-control">
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="UpdateComp()" class="btn btn-success">update</button>
+
+        </div>
+    </form>
+</div>

@@ -34,6 +34,7 @@ export class ForumComponent {
     } catch (error) {
       // Handle errors if any
       console.log(error);
+      alert(error.error);
       this.loaded=false;
     //   return false;
     }
@@ -54,12 +55,14 @@ export class ForumComponent {
         };
         console.log('Adding comment:', comment);
          const a = await this.forumService.addComment(id,comment).toPromise();
+        
          this.loadData();
     // Reset the textarea value after adding the comment if needed
     
         // this.loadData();
     } catch (error) {
         console.log(error)
+        alert(error.error);
     }
   }
   async addLike(id){
@@ -75,6 +78,7 @@ export class ForumComponent {
         // this.loadData();
     } catch (error) {
         console.log(error)
+        alert(error.error);
     }
   }
   async addPost(postTitle,postbody){
@@ -86,6 +90,7 @@ export class ForumComponent {
         };
         console.log('Adding post:', post);
          const a = await this.forumService.addPost(post).toPromise();
+         alert("post added ");
         this.closePopup.emit(null);
 
          this.loadData();
@@ -94,6 +99,7 @@ export class ForumComponent {
         // this.loadData();
     } catch (error) {
         console.log(error)
+        alert(error.error);
     }
   }
   
