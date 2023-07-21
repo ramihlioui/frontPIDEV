@@ -3,7 +3,7 @@ import {UserAuthService} from './user-auth.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../Entity/UserModel';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -62,9 +62,16 @@ export class UserServiceService {
   }
 
 
-  public getAllUsernames()
+  public getAllUsers()
   {
-return this.httpClient.get(this.PATH+"/getAllUsernames",{headers : this.requestHeaders});
+    const token = localStorage.getItem("token")
+    const config: AxiosRequestConfig = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  
+    return axios.get("http://localhost:8080/user/all", config);
   }
   public getAllRoles()
   {
@@ -72,15 +79,13 @@ return this.httpClient.get(this.PATH+"/getAllUsernames",{headers : this.requestH
   }
   public RoleMatch(allowedRoles:any):boolean
   {
-    let isMatch = false;
     let roles:any = this.userAut.getRoles();
 
     for(const element of roles) {
       for (const item of allowedRoles) {
-        if (element.roleName === item)
+        if (element == item)
         {
-          isMatch = true;
-          return isMatch;
+          return true;
         }
 
       }
