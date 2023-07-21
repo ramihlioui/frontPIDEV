@@ -44,6 +44,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -77,6 +78,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
      LockComponent,
      ForgotPasswordComponent,
      ActivatedAccountComponent,
+   
      AdminDashboardComponent,
      CalendarComponent,
 

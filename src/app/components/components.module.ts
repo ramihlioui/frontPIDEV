@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForumComponent } from './forum/forum.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapNavigationComponent } from './map-navigation/map-navigation.component';
 import { MapComponent } from './map/map.component';
@@ -23,6 +24,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    ForumComponent,
     MapComponent,
     MapNavigationComponent,
     AddReclamationComponent,
