@@ -43,7 +43,7 @@ export class MapComponent implements AfterViewInit {
     this.map.whenReady(async (map) => {
       const heatmapPoints = await this.estateService.getHeatmap();
       (L as any).heatLayer(
-        heatmapPoints.map(e=>[e.lat,e.lng,e.count])
+        heatmapPoints.map(e=>[e.lat,e.lng,e.count*100])
       )
       //@ts-ignore
       .addTo(map.target);

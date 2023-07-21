@@ -1,1 +1,49 @@
-<p>map-navigation works!</p>
+<div class="map-container">
+
+    <div [style.background]="this.searching ? 'black' : 'teal'" class="search"
+        (click)="searching ? undefined : searchInMap()">{{searching ? 'Searching':'Search'}}</div>
+
+    <div *ngIf="this.adding" class="custom-modal">
+        <div class="custom-modal-content">
+            <span (click)="this.adding = false" class="custom-close">&times;</span>
+            <h3>Add a product</h3>
+            <div style="height: 1px; width: 100%; border-top: 1px solid black; margin-top: 2px; margin-bottom: 2px">
+            </div>
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" (change)="addingForm.name=$event.target.value">
+            </div>
+            <div class="form-group">
+                <label>Area:</label>
+                <input type="number" class="form-control" (change)="addingForm.area=$event.target.value">
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="number" class="form-control" (change)="addingForm.price=$event.target.value">
+            </div>
+            <div class="form-group">
+                <label for="usr">Description:</label>
+                <textarea class="form-control" (change)="addingForm.description=$event.target.value"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Rooms:</label>
+                <input type="number" class="form-control" (change)="addingForm.details.nbRoom=$event.target.value">
+            </div>
+            <div class="form-group">
+                <label>Floors:</label>
+                <input type="number" class="form-control" (change)="addingForm.details.floors=$event.target.value">
+            </div>
+            <div class="form-group">
+                <label>Built at:</label>
+                <input type="date" class="form-control" (change)="addingForm.details.built_at=$event.target.value">
+            </div>
+            <div style="display: flex; justify-content: end;">
+                <button type="button" class="btn btn-success" (click)="this.addEstate()">Success</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-frame">
+        <div id="map"></div>
+    </div>
+</div>

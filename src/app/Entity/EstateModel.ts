@@ -20,6 +20,11 @@ export type EstateLocation = {
   longitude: number;
 };
 
+export type EstateOwner = {
+  id: number;
+  fullName: string;
+};
+
 export type Estate = {
   id: number;
   name: string;
@@ -29,4 +34,5 @@ export type Estate = {
   createdAt: Date;
   details: EstateDetails;
   location: EstateLocation;
+  owner: EstateOwner
 };

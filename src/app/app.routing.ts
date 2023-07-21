@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 
+import { SellerGuard } from "./auth/Seller.Guard";
+import { MapNavigationComponent } from "./components/map-navigation/map-navigation.component";
 import { MapComponent } from "./components/map/map.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
@@ -41,7 +43,15 @@ const routes: Routes = [
   },
   {
     path: "heatmap",
-    component: MapComponent
+    component: MapComponent,
+    canActivate: [SellerGuard],
+    data: { allowedRoles: ["ROLE_SELLER", "ROLE_BUYER"], hideUI: true },
+  },
+  {
+    path: "navigate",
+    component: MapNavigationComponent,
+    canActivate: [SellerGuard],
+    data: { allowedRoles: ["ROLE_SELLER", "ROLE_BUYER"], hideUI: true },
   },
 ];
 
