@@ -39,6 +39,7 @@ import { ActivatedAccountComponent } from './pages/activated-account/activated-a
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -68,6 +69,7 @@ import { ActivatedAccountComponent } from './pages/activated-account/activated-a
      LockComponent,
      ForgotPasswordComponent,
      ActivatedAccountComponent,
+   
 
   ],
   providers: [

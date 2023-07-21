@@ -1,0 +1,201 @@
+<p>forum works!</p>
+<div class="container-fluid mt-4 mb-4">
+    <div class="card mx-auto" style="max-width: 680px">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <h5 class="h3 mb-0 mr-auto">Home</h5>
+
+                <!-- Search form -->
+                <form
+                        class="navbar-search navbar-search-light form-inline"
+                        id="navbar-search-main"
+                >
+                <div>
+                    <a class="btn btn-primary" (click)="visiblePopup=true">add a post</a>
+             
+                </div>
+                    <!-- <button
+                            type="button"
+                            class="close"
+                            (click)="closeSearch()"
+                            data-action="search-close"
+                            data-target="#navbar-search-main"
+                            aria-label="Close"
+                    >
+                        <span aria-hidden="true">×</span>
+                    </button> -->
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <div *ngIf="loaded">
+        <!-- Show the content that depends on this.Posts -->
+        <div *ngFor="let post of Posts">
+            <div class=" card mx-auto" style="max-width: 680px">
+                <div class=" card-header d-flex align-items-center">
+                    <div class=" d-flex align-items-center">
+                        <a href="javascript:void(0)">
+                            <img class=" avatar" src="https://img.freepik.com/free-icon/user_318-159711.jpg"/>
+                        </a>
+        
+                        <div class=" mx-3">
+                            <a
+                                    class=" text-dark font-weight-600 text-sm"
+                                    href="javascript:void(0)"
+                            >
+                                {{post.users.fullName}}
+                            </a>
+        
+                            <small class=" d-block text-muted"> {{post.createdAt}} </small>
+                        </div>
+                    </div>
+        
+                 <div >
+                    <div class=" text-right ml-auto">
+                        <a class=" btn btn-sm btn-danger btn-icon"  (click)="deletPost(post.postId)">
+                      <span class=" btn-inner--icon">
+                        <i class=" ni ni-fat-remove"> </i>
+                      </span> 
+                         </a> 
+                    </div>
+                 </div>
+                </div>
+        
+                <div class=" card-body">
+                    <h3 class="mb-4">{{post.postTitle}}</h3>
+                    <p class=" mb-4">
+                        {{ post.body }}
+                    </p>
+        
+                    <img
+                            alt="Image placeholder"
+                            class=" img-fluid rounded"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-052F2bAbqotQaN3gMB52myhkjt5aa1XTM9TIRFjX6P7_aKME7SKXBcB5OG0c6iWH-Y&usqp=CAU"
+                    />
+        
+                    <div class=" row align-items-center my-3 pb-3 border-bottom">
+                        <div class=" col-sm-6">
+                            <div class=" icon-actions">
+                                <a class=" like active" href="javascript:void(0)" (click)="addLike(post.postId)">
+                                    <i class=" ni ni-like-2">       {{(post.postLikes).length}}  likes </i>
+        
+                                    <!-- <span class=" text-muted"> {{Object.keys(post.postLikes).length}} </span> -->
+                                </a>
+        
+                                <a href="javascript:void(0)">
+                                    <i class=" ni ni-chat-round ml-5"> </i>
+        
+                                    <span class=" text-muted">  {{(post.postComments).length}}  </span>
+                                </a>
+        
+                                <!-- <a href="javascript:void(0)">
+                                    <i class=" ni ni-curved-next"> </i>
+        
+                                    <span class=" text-muted"> 12 </span>
+                                </a> -->
+                            </div>
+                        </div>
+        
+                        <div class=" col-sm-6 d-none d-sm-block">
+                            <div class=" d-flex align-items-center justify-content-sm-end">
+                           
+        
+                                <!-- <small class=" pl-2 font-weight-bold"> and 30+ more </small> -->
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class=" mb-1">
+                        <div *ngFor="let a of post.postComments">
+                        <div class=" media media-comment">
+                      
+        
+                      
+                            <div class=" media-body">
+                                <div class=" media-comment-text">
+                                       <!-- <img
+                                    alt="Image placeholder"
+                                    class=" avatar avatar-lg media-comment-avatar rounded-circle"
+                                    src="https://img.freepik.com/free-icon/user_318-159711.jpg"
+                            /> -->
+                                    <h6 class=" h5 mt-0">{{a.user.fullName}}</h6>
+        
+                                    <p class=" text-sm lh-160">
+                                       {{a.commentBody}}
+                                    </p>
+        
+                                    <!-- <div class=" icon-actions">
+                                        <a class=" like active" href="javascript:void(0)">
+                                            <i class=" ni ni-like-2"> </i>
+        
+                                            <span class=" text-muted"> 3 likes </span>
+                                        </a>
+      
+                                    </div> -->
+                                </div>
+                     <hr>
+                        </div>
+                        </div>
+                    </div>
+        
+        
+             
+        
+                        <div class=" media align-items-center">
+                            <img
+                                    alt="Image placeholder"
+                                    class=" avatar avatar-lg rounded-circle mr-4"
+                                    src="https://img.freepik.com/free-icon/user_318-159711.jpg"
+                            />
+        
+                            <div class=" media-body">
+                                <form>
+                          <textarea
+                          id="comment{{post.postId}}"
+                                  class=" form-control"
+                                  placeholder="Write your comment"
+                                  rows="1"
+                                  #commentInput
+                                 
+                          ></textarea>
+                          <a class="btn btn-primary mt-1 " (click)="addComment(post.postId,commentInput.value)"> add comment </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+      </div>
+     
+   
+
+</div>
+<div *ngIf="visiblePopup" class="popup">
+    
+    <div class="popup-content">
+        <a class=" btn btn-sm btn-danger btn-icon" (click)="visiblePopup=false" >
+            <span class=" btn-inner--icon">
+              <i class=" ni ni-fat-remove"> </i>
+            </span> 
+               </a> 
+      <h2>What's on your mind ?</h2>
+     
+      <label for="postTitle">Post Title:</label>
+      <input type="text" id="postTitle" #postTitle />
+  
+      <label for="postBody">Post Body:</label>
+      <textarea id="postBody" #postBody></textarea>
+  
+      <div class="popup-actions">
+        <button (click)="onCancelClick()">Cancel</button>
+        <button (click)="addPost(postTitle.value,postBody.value)">Create</button>
+      </div>
+    </div>
+  </div>
+  
+
+
