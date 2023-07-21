@@ -4,6 +4,7 @@ import { Reclamation } from 'src/app/Entity/Reclamation';
 import { ReclamationService } from 'src/app/services/reclamation.service';
 import pdfMake from "pdfmake/build/pdfmake";  
 import pdfFonts from "pdfmake/build/vfs_fonts";  
+import Swal from 'sweetalert2';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;   
 
 @Component({
@@ -24,6 +25,24 @@ export class ListReclamationsComponent {
     this.service.DeleteReclamation(id).subscribe(p => {
       console.log('delete');
       window.location.reload();
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Reclamation deleted ! '
+      })
+
     });
   }
   generatePDF(rec: Reclamation) {

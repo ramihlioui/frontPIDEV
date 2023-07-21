@@ -36,16 +36,19 @@ export class ReclamationService {
   }
 
   ajouterReclamation( rec: Reclamation){
-    return this.http.post<Reclamation>(this.consulturl+'/addReclamation/1', rec, {headers: this.requestHeaders2});
+    return this.http.post<Reclamation>(this.consulturl+'/addReclamation', rec, {headers: this.requestHeaders2});
   }
 
   consulterReclamation(reclamationtId: number): Observable<Reclamation> {
-    const url = `${this.consulturl}/${reclamationtId}`;
-    return this.http.get<Reclamation>(url);
+    return this.http.get<Reclamation>(this.consulturl+'/getReclamation/'+ reclamationtId, {headers: this.requestHeaders2});
   }
 
   CloseReclamation(idReclamation: number,solution:string ) {
-    return this.http.put<Reclamation>(this.consulturl+'/close/' + idReclamation ,solution, {headers: this.requestHeaders2});
+    const body = {
+      solution:solution
+    }
+    console.log(body)
+    return this.http.put<Reclamation>(this.consulturl+'/close/' + idReclamation ,body, {headers: this.requestHeaders2});
 
   }
 

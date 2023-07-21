@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamation } from 'src/app/Entity/Reclamation';
 import { ReclamationService } from 'src/app/services/reclamation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detail-reclamation',
@@ -9,16 +10,22 @@ import { ReclamationService } from 'src/app/services/reclamation.service';
   styleUrls: ['./detail-reclamation.component.css']
 })
 export class DetailReclamationComponent implements OnInit {
+  
+  id:number
 
-
-  reclamation : Reclamation;
+  reclamation : Reclamation = new Reclamation();
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
     private service: ReclamationService ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params.get('id');   
-    this.service.consulterReclamation(id).subscribe(res => {
+      this.activatedRoute.params.subscribe(params => {
+        // Access path variables using params object
+        this.id = params['id']; // For example, if your path variable is named 'id'
+        // Do something with the path variable 'id'
+      });
+    
+    this.service.consulterReclamation(this.id).subscribe(res => {
       this.reclamation=res;
   });
   }
@@ -26,9 +33,23 @@ export class DetailReclamationComponent implements OnInit {
   UpdateComp() {
     this.service.CloseReclamation(this.reclamation.id, this.reclamation.solution).subscribe(p => {
         console.log(this.reclamation);
-        this.router.navigate(['user/forum']).then(() => {
-            window.location.reload();
-        });
-    });
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Reclamation closed ! '
+        })
+      }
+    );
 }
 }

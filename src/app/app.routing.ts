@@ -32,18 +32,6 @@ const routes: Routes =[
         loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
-  },
-  {
-    path: "reclamationadmin",
-    component: ListReclamationsComponent,
-  },
-  {
-    path: "updaterec",
-    component: DetailReclamationComponent,
-  },
-  {
-    path: "addReclamation",
-    component: AddReclamationComponent,
   }
 ];
 

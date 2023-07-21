@@ -1,56 +1,129 @@
-<h1>The list of Reclamation</h1>
-<div _ngcontent-tvm-c92 class="card">
-    <div class="p-datatable-header ng-star-inserted"><div _ngcontent-fwi-c180="" class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header ng-star-inserted"> Complaint <span _ngcontent-fwi-c180="" class="p-input-icon-left"><i _ngcontent-fwi-c180="" class="pi pi-search"></i><input _ngcontent-fwi-c180="" pinputtext="" type="text" placeholder="Global Search" class="p-inputtext p-component"></span></div><!--bindings={
-  "ng-reflect-ng-template-outlet": "[object Object]"
-}-->
-    </div>
-    <table>
-        <thead >
-        <tr _ngcontent-pdn-c180="" class="ng-star-inserted">
-            <Th>id</Th>
-            <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>title</th>
-            <th>   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Description
-            </div></th>
-            <th>   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Solution
-            </div></th>
-            <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                   <div _ngcontent-mrk-c180="" class="p-d-flex p-jc-between p-ai-center"> Creation Date
-            </div></th>
-                <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                    <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>status</th>
-                    <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                        <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>PDF</th>
-            <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>delete</th>
-            <th _ngcontent-cph-c180="" psortablecolumn="name" ng-reflect-field="name" tabindex="0" role="columnheader" aria-sort="none" class="p-sortable-column">
-                <div _ngcontent-cph-c180="" class="p-d-flex p-jc-between p-ai-center"> </div>update</th>
-        </thead>
-        <tbody class="p-datatable-tbody" *ngFor="let rec of listcomp ">
-        <tr>
-            <td>{{rec.id}}</td>
-            <td _ngcontent-gbj-c180> {{ rec.title }} </td>
-            <td _ngcontent-gbj-c180>  {{ rec.description }}</td>
-            <td _ngcontent-gbj-c180>  {{ rec.solution }}</td>
-            <td _ngcontent-gbj-c180>  {{ rec.creationDate }}</td>
-            <td _ngcontent-gbj-c180>  {{ rec.treated }} </td>
-            
-            <td _ngcontent-gbj-c180><button (click)="generatePDF(rec)"  pbutton="" pripple="" type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mr-2 p-mb-2 p-ripple p-button p-component p-button-icon-only" ng-reflect-icon="pi pi-times">
-                <span class="p-button-icon pi pi-times" aria-hidden="true"></span>
-                <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
-                <span class="p-ink"></span></button></td>
-            <td _ngcontent-gbj-c180><button (click)="deleteReclamation(rec.id)"  pbutton="" pripple="" type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined p-mr-2 p-mb-2 p-ripple p-button p-component p-button-icon-only" ng-reflect-icon="pi pi-times">
-                <span class="p-button-icon pi pi-times" aria-hidden="true"></span>
-                <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span>
-                <span class="p-ink"></span></button></td>
-            <td _ngcontent-gbj-c180><button [routerLink]="['/updaterec',rec.id]" _ngcontent-gyv-c180="" pbutton="" type="button" icon="pi pi-cog" class="p-button-secondary p-button p-component p-button-icon-only" ng-reflect-icon="pi pi-cog">
-                <span class="p-button-icon pi pi-cog" aria-hidden="true"></span>
-                <span aria-hidden="true" class="p-button-label">&amp;nbsp;</span></button></td>
-        </tr>
-        </tbody>
-    </table>
-    <button [routerLink]="['/addReclamation']" _ngcontent-afu-c112="" pbutton="" type="button" label="New" icon="pi pi-plus" ng-reflect-label="New" ng-reflect-icon="pi pi-plus" class="p-button p-component">
-        <span class="p-button-icon p-button-icon-left pi pi-plus" aria-hidden="true"></span>
-        <span  class="p-button-label" >New</span>
-    </button>
+
+    <div class=" header bg-danger pb-6">
+        <div class=" container-fluid">
+          <div class=" header-body">
+            <div class=" row align-items-center">
+              <div class=" mt-9  col-lg-6 col-7">
+      
+                <nav
+                  aria-label="breadcrumb"
+                  class="  d-none d-md-inline-block ml-md-4"
+                >
+                  <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                    <li class=" breadcrumb-item">
+                      <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                    </li>
+      
+                    <li class=" breadcrumb-item">
+                      <a href="javascript:void(0)"> Reclamation </a>
+                    </li>
+    
+                  </ol>
+                </nav>
+              </div>
+      
+              <div class=" mt-9  col-lg-6 col-5 text-right">
+                <a class=" btn btn-sm btn-neutral" [routerLink]="['/addReclamation']"> New </a>
+      
+                <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+                  Filters
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class=" container-fluid mt--6">
+        <div class=" row">
+          <div class=" col">
+    
+    
+    
+    
+    <div class=" card mt-8">
+        <div class=" card-header border-0">
+          <div class=" row">
+            <div class=" col-6"><h3 class=" mb-0">Inline actions</h3></div>
+          </div>
+        </div>
+    
+        <div class=" table-responsive">
+          <table class=" table align-items-center table-flush">
+            <thead class=" thead-light">
+              <tr>
+                <th>Reclamation</th>
+    
+                <th>Title</th>
+    
+                <th>Description</th>
+                <th class=" sort" data-sort="status" scope="col">Statut</th>
+    
+                <th>Solution</th>
+                <th>Creation Date</th>
+                <th>Actions</th>
+    
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor="let reclamation of listcomp">
+                <td><span> {{ reclamation.id }}</span></td>
+
+                <td class=" table-user">
+                
+                  <b>{{reclamation.title}} </b>
+                </td>
+    
+                <td><span> {{ reclamation.description }}</span></td>
+                <td>
+                    <span class=" badge badge-dot mr-4">
+                      <i class=" {{ reclamation.treated === false ? 'bg-warning' : 'bg-warning' }}"> </i>
+    
+                      <span class=" status"> {{ reclamation.treated === true ? 'closed' : 'not yet' }} </span>
+                    </span>
+                  </td>
+                  <td><span> {{ reclamation.solution }}</span></td>
+    
+                  <td><span> {{ reclamation.creationDate }}</span></td>
+    
+    
+    
+                <td class=" table-actions">
+                  <a
+                    class="table-action"
+                    tooltip="Edit product"
+                    placement="top"
+                    (click)="generatePDF(reclamation)"
+                  >
+                  print
+                </a>
+                  <a
+                  class="table-action"
+                  tooltip="Edit product"
+                  placement="top"
+                  [routerLink]="['/updaterec',reclamation.id]"
+                >
+                  update
+                </a>
+    
+                  <a
+                    class="ml-4 table-action table-action-delete"
+                    tooltip="Delete product"
+                    placement="top"
+                    (click)="deleteReclamation(reclamation.id)"
+                  >
+                    delete
+                  </a>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+     
+          </div>
+        </div>
     </div>

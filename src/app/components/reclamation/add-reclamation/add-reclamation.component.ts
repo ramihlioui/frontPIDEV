@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Reclamation } from 'src/app/Entity/Reclamation';
 import { ReclamationService } from 'src/app/services/reclamation.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-reclamation',
@@ -19,9 +20,24 @@ ngOnInit(): void {
 }
   addReclamation(){
     this.ComplaintService.ajouterReclamation(this.newReclamation).subscribe(comp => {
-      this.router.navigate(['']).then(() => {
-        window.location.reload();
-      });
+      {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Reclamation sent ! '
+        })
+      }
 
     });
 
