@@ -30,6 +30,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { ReclamationService } from './services/reclamation.service';
 import { SellerGuard } from './auth/Seller.Guard';
 import { LockComponent } from './pages/lock/lock.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -86,7 +87,8 @@ import { HeaderInterceptor } from './services/header.interceptor';
     
     
     ,
-    UserServiceService
+    UserServiceService,
+    ReclamationService
 
   ],
   bootstrap: [AppComponent]

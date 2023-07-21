@@ -1,6 +1,5 @@
 export class User {
     id: number;
-    email: string;
     fullName: string;
     loginAttempts: number;
     isEnabled: boolean;

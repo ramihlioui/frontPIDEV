@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAuthService} from "../../services/user-auth.service";
 import Swal from "sweetalert2";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/Entity/UserModel';
 
@@ -12,10 +12,11 @@ import { User } from 'src/app/Entity/UserModel';
 })
 export class UserProfileComponent implements OnInit{
 
-  constructor(public userAuth:UserAuthService,private router:Router,private userService: UserServiceService) { }
+  constructor(public userAuth:UserAuthService,private router:Router,private userService: UserServiceService,private url:ActivatedRoute) { }
 
   user: User
   ngOnInit() {
+    
 
     if(this.userAuth.getLoginSucessNotif() == "0") {
       this.userAuth.setLoginSucessNotif("1")
@@ -37,21 +38,8 @@ export class UserProfileComponent implements OnInit{
       }).then()
     }
 
-    this.getUserById()
   }
 
-  getUserById(){
-    const userId = 5; // Replace with the desired user ID
-    this.userService.getUserById(userId).subscribe(
-      user => {
-        this.user = user;
-        console.log(user)
-      },
-      error => {
-        console.log('Error occurred while fetching user:', error);
-      }
-    );
-  }
 
 
 
