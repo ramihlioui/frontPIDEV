@@ -74,7 +74,10 @@ export class EstateService {
   }
 
   async createEstate(data: any): Promise<Estate> {
-    const estate: Estate = await axios.post("/estates/", data);
-    return estate
+    const { data: estate }: { data: Estate } = await axios.post(
+      "/estates/",
+      data
+    );
+    return estate;
   }
 }
