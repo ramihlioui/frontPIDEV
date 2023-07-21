@@ -30,9 +30,16 @@
             ],
             "styles": [
               "src/styles.scss",
+<<<<<<< Updated upstream
               "src/mystyle.scss",
               "src/assets/scss/argon.scss",
               "./node_modules/leaflet/dist/leaflet.css",
+=======
+              "src/mystyles.scss",
+              "src/assets/scss/argon.scss", 
+
+              
+>>>>>>> Stashed changes
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/purple-green.css"
               }

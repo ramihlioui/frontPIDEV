@@ -14,11 +14,24 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class ListReclamationsComponent {
   listcomp: Reclamation[];
+  stats : Map<string,number>;
+  open: number=2;
+  closed:number=2;
+  today : number=4;
+  total:number=4;
   constructor(private router: Router, private service: ReclamationService) { }
 
 
   ngOnInit(): void {
   this.service.getReclamations().subscribe(res => {console.log(res); this.listcomp = res; });
+  this.service.getstats().subscribe(res =>  {console.log(res); this.stats = res;
+    this.open= res.get("Open");
+    this.closed= res.get("Closed");
+    this.today= res.get("CreatedToday");
+    this.total= res.get("Total");
+   });
+
+
   }
 
   deleteReclamation(id: number) {

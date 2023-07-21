@@ -54,8 +54,8 @@ export class UserServiceService {
       return axios.post<any>(`http://localhost:8080/auth/confirm?token=${token}`)
   
     } 
-
-  getUserById(id: number): Observable<User> {
+    
+  getUserById(id: string): Observable<User> {
     const url = `${this.PATH}/user/${id}`;
     console.log(url)
     return this.httpClient.get<User>(url);
