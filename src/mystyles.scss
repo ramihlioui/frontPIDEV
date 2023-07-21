@@ -1,0 +1,23 @@
+@import "../node_modules/angular-calendar/scss/angular-calendar.scss";
+
+$bg-dark-primary: #cfdbe8;
+$bg-dark-secondary: #9b6bb9;
+$bg-active: #b0b4b8;
+$text-color: #5381af;
+$border-color: rgba(238, 231, 231, 0.6);
+
+// Call the calendar mixin with a sass color map of your theme. Every property is optional.
+// For a list of all variables and how they are used,
+// see https://github.com/mattlewis92/angular-calendar/tree/master/projects/angular-calendar/src/variables.scss
+@include cal-theme(
+    (
+      bg-primary: $bg-dark-primary,
+      bg-secondary: $bg-dark-secondary,
+      weekend-color: rgb(234, 75, 210),
+      bg-active: $bg-active,
+      border-color: $border-color,
+      gray: $bg-dark-secondary,
+      today-bg: $bg-dark-secondary,
+      event-color-primary: $bg-dark-secondary
+    )
+);

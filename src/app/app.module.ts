@@ -37,7 +37,9 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ActivatedAccountComponent } from './pages/activated-account/activated-account.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { HeaderInterceptor } from './services/header.interceptor';
-
+import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 
@@ -58,7 +60,11 @@ import { HeaderInterceptor } from './services/header.interceptor';
     MatInputModule,
     MatIconModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   declarations: [
     AppComponent,
@@ -72,6 +78,7 @@ import { HeaderInterceptor } from './services/header.interceptor';
      ForgotPasswordComponent,
      ActivatedAccountComponent,
      AdminDashboardComponent,
+     CalendarComponent,
 
   ],
   providers: [
