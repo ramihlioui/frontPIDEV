@@ -20,6 +20,7 @@ export class ForumComponent {
 
   ngOnInit(): void {
    this.loadData();
+   this.Posts.reverse();
     console.log("pooooooosts",this.Posts);
 
   }
@@ -90,7 +91,7 @@ export class ForumComponent {
         };
         console.log('Adding post:', post);
          const a = await this.forumService.addPost(post).toPromise();
-         alert("post added ");
+         this.visiblePopup=false;
         this.closePopup.emit(null);
 
          this.loadData();
