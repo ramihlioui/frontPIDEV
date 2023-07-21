@@ -4,14 +4,11 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 
 import { SellerGuard } from "./auth/Seller.Guard";
+import { ForumComponent } from './components/forum/forum.component';
 import { MapNavigationComponent } from "./components/map-navigation/map-navigation.component";
 import { MapComponent } from "./components/map/map.component";
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-
-import { ListReclamationsComponent } from './components/reclamation/list-reclamations/list-reclamations.component';
-import { DetailReclamationComponent } from './components/reclamation/detail-reclamation/detail-reclamation.component';
-import { AddReclamationComponent } from './components/reclamation/add-reclamation/add-reclamation.component';
 
 const routes: Routes = [
   {
@@ -37,6 +34,11 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       {
+        path: 'forum',
+        component: ForumComponent,
+        pathMatch: 'full',
+      },
+      {
         path: "",
         loadChildren: () =>
           import("src/app/layouts/auth-layout/auth-layout.module").then(
@@ -56,7 +58,7 @@ const routes: Routes = [
     component: MapNavigationComponent,
     canActivate: [SellerGuard],
     data: { allowedRoles: ["ROLE_SELLER", "ROLE_BUYER"], hideUI: true },
-  },
+  }
 ];
 
 @NgModule({

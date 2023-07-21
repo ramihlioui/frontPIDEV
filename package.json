@@ -44,13 +44,13 @@
     "ngx-toastr": "^16.1.0",
     "pdfmake": "^0.2.7",
     "rxjs": "~7.5.0",
-    "sweetalert2": "^11.7.3",
+    "sweetalert2": "^11.6.13",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.2",
-    "@angular/cli": "~15.0.2",
+    "@angular/cli": "^15.2.9",
     "@angular/compiler-cli": "^15.0.0",
     "@types/file-saver": "^2.0.5",
     "@types/heatmap.js": "^2.0.37",
