@@ -4,13 +4,7 @@ import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 
 import { SellerGuard } from 'src/app/auth/Seller.Guard';
-import { AdminDashboardComponent } from 'src/app/pages/admin-dashboard/admin-dashboard.component';
 import { CalendarComponent } from 'src/app/calendar/calendar.component';
-import { ListReclamationsComponent } from 'src/app/components/reclamation/list-reclamations/list-reclamations.component';
-import { DetailReclamationComponent } from 'src/app/components/reclamation/detail-reclamation/detail-reclamation.component';
-import { AddReclamationComponent } from 'src/app/components/reclamation/add-reclamation/add-reclamation.component';
-
-import { SellerGuard } from "src/app/auth/Seller.Guard";
 import { AddReclamationComponent } from "src/app/components/reclamation/add-reclamation/add-reclamation.component";
 import { DetailReclamationComponent } from "src/app/components/reclamation/detail-reclamation/detail-reclamation.component";
 import { ListReclamationsComponent } from "src/app/components/reclamation/list-reclamations/list-reclamations.component";
