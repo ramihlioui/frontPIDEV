@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: "app-admin-layout",
@@ -9,12 +9,23 @@ import { Component } from "@angular/core";
 export class AdminLayoutComponent {
   public hideUI = false;
 
-  constructor(/*private route: ActivatedRoute*/) {}
+  isMobileResolution: boolean;
 
-  // ngAfterViewInit() {
-  //   this.route.firstChild.firstChild.data.subscribe(v=>{
-  //     console.log(v);
-  //     if(v.hideUI) this.hideUI = true
-  //   })
-  // }
+  constructor() {
+    if (window.innerWidth < 1200) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
+  @HostListener("window:resize", ["$event"])
+  isMobile(event) {
+    if (window.innerWidth < 1200) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+  }
+  ngOnInit() {}
+
 }

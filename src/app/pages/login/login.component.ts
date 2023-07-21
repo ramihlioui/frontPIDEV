@@ -22,16 +22,24 @@ export class LoginComponent implements OnInit, OnDestroy {
      
       this.authService.setToken(response.data.token)
       this.authService.setRoles(response.data.roles)
+        console.log(response.data.roles)
+      if(response.data.roles.includes("ROLE_ADMIN")){
+        this.router.navigate(["/dashboard"]);
+      }else{
+        this.router.navigate(["/user-profile"]);
 
-      this.router.navigate(["/user-profile"]);
+      }
+
     }
   );
   }
 
   ngOnInit() {
     this.authService.setLoginSucessNotif("0");
-    if(this.authService.isLoggedIn() && this.userService.RoleMatch(["User"]))
+    if(this.authService.isLoggedIn() && this.userService.RoleMatch(["ROLE_USER"]))
     {
+      console.log("AAAAAA : ")
+
       this.router.navigate(["/user-profile"]).then( () =>
         {
           const Toast = Swal.mixin({
@@ -54,8 +62,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       )
     }
-    else if(this.authService.isLoggedIn() && this.userService.RoleMatch(["Admin"]))
+    else if(this.authService.isLoggedIn() &&  this.authService.getRolesAgain().includes("ROLE_ADMIN"))
     {
+      console.log("AAAAAA : ")
+
       this.router.navigate(["/dashboard"]).then()
     }
     else {

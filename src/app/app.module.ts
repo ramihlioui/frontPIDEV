@@ -30,10 +30,13 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { ReclamationService } from './services/reclamation.service';
 import { SellerGuard } from './auth/Seller.Guard';
 import { LockComponent } from './pages/lock/lock.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ActivatedAccountComponent } from './pages/activated-account/activated-account.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { HeaderInterceptor } from './services/header.interceptor';
 
 
 
@@ -68,22 +71,24 @@ import { ActivatedAccountComponent } from './pages/activated-account/activated-a
      LockComponent,
      ForgotPasswordComponent,
      ActivatedAccountComponent,
+     AdminDashboardComponent,
 
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true,
+    },
     SellerGuard,
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor ,multi:true ,
     }
+    
+    
     ,
-    {
-      provide : HTTP_INTERCEPTORS,
-      useClass : AuthInterceptor,
-      multi : true
-
-    }
-    ,
-    UserServiceService
+    UserServiceService,
+    ReclamationService
 
   ],
   bootstrap: [AppComponent]
